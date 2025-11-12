@@ -1,0 +1,169 @@
+/* global.css
+  This file sets up Tailwind, imports a modern font (Inter),
+  defines a premium color palette, and adds custom animated
+  components and utility classes.
+*/
+
+/* Import a clean, modern font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* 1. Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Base Layer & Custom Properties (Color Palette) */
+@layer base {
+  :root {
+    /* Define your premium color palette */
+    --color-primary: 22 101 216; /* Blue-700 */
+    --color-primary-hover: 24 90 188;
+    --color-primary-glow: 22 101 216; /* For glowing effects */
+    
+    --color-secondary: 239 68 68; /* Red-500 */
+    
+    --color-text: 28 35 52;     /* Slate-800 */
+    --color-text-muted: 71 85 105;  /* Slate-600 */
+    --color-bg: 248 250 252;   /* Slate-50 */
+    --color-bg-card: 255 255 255; /* White */
+    
+    --color-border: 226 232 240; /* Slate-200 */
+    
+    /* Define border radius */
+    --radius: 0.75rem; /* 12px */
+  }
+  
+  /* Apply base styles */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html, body, #__next {
+    height: 100%;
+  }
+
+  body {
+    @apply font-sans; /* Use the 'Inter' font stack from Tailwind */
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* 3. Custom Component Layer (Pre-built attractive components) */
+@layer components {
+  /* A beautiful, animated primary button */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-medium text-white rounded-lg shadow-md transition-all duration-300 ease-out;
+    background: linear-gradient(to right, rgb(var(--color-primary)), #3b82f6); /* Blue-700 to Blue-500 */
+    overflow: hidden;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--color-primary-glow), 0.3);
+    background: linear-gradient(to right, rgb(var(--color-primary-hover)), #2563eb);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(var(--color-primary-glow), 0.2);
+  }
+  
+  /* A clean, secondary outline button */
+  .btn-secondary {
+     @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg border-2 transition-all duration-300 ease-out;
+     border-color: rgb(var(--color-border));
+     color: rgb(var(--color-text-muted));
+  }
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    border-color: rgb(var(--color-primary));
+    color: rgb(var(--color-primary));
+    background-color: rgba(var(--color-primary), 0.05);
+    box-shadow: 0 4px 12px rgba(var(--color-primary-glow), 0.05);
+  }
+
+  /* A modern, soft-shadow card */
+  .card {
+    @apply bg-white border border-transparent rounded-xl shadow-sm transition-all duration-300 ease-out;
+    background-color: rgb(var(--color-bg-card));
+    border-color: rgb(var(--color-border));
+    /* A softer, more modern shadow */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    /* A slightly stronger shadow on hover */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  }
+
+  /* A beautifully styled input field */
+  .input-field {
+    @apply w-full px-4 py-3 text-base rounded-lg border-2 bg-transparent transition-all duration-300 ease-out;
+    color: rgb(var(--color-text));
+    border-color: rgb(var(--color-border));
+  }
+  .input-field:focus,
+  .input-field:focus-visible {
+    outline: none;
+    border-color: rgb(var(--color-primary));
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-glow), 0.1);
+  }
+}
+
+/* 4. Custom Utility Layer (Animations) */
+@layer utilities {
+  /* Keyframe definitions */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideInFromLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      opacity: 1; 
+      box-shadow: 0 0 10px rgba(var(--color-primary-glow), 0.2);
+    }
+    50% { 
+      opacity: 0.8; 
+      box-shadow: 0 0 20px rgba(var(--color-primary-glow), 0.4);
+    }
+  }
+
+  /* Animation utility classes */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInFromLeft 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite ease-in-out;
+  }
+  
+  /* Add a utility for the page title */
+  .page-title {
+    @apply text-4xl font-bold tracking-tight;
+    color: rgb(var(--color-text));
+  }
+}
+html, body {
+  @apply transition-colors duration-500;
+}

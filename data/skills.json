@@ -1,0 +1,49 @@
+{
+  "python": {
+    "subskills": [
+      "Variables & Data Types", "Loops & Conditionals", "Functions",
+      "Data Structures (Lists, Dictionaries)", "Object-Oriented Programming (OOP)",
+      "File I/O", "Pandas (for Data Analysis)", "Flask (for Web Dev)"
+    ],
+    "roadmap": [
+      "Step 1: Master the Basics - Start with variables, data types, loops, and functions. Understand the core syntax.",
+      "Step 2: Learn Data Structures - Get comfortable with lists, dictionaries, tuples, and sets.",
+      "Step 3: Explore OOP - Understand classes, objects, inheritance, and polymorphism.",
+      "Step 4: Build Small Projects - Create a simple calculator, a to-do list app, or a web scraper.",
+      "Step 5: Specialize - Choose a path. For web dev, learn Flask or Django. For data, learn Pandas, NumPy, and Scikit-learn."
+    ],
+    "resources": [
+      { "title": "Official Python Tutorial", "link": "https://docs.python.org/3/tutorial/", "description": "The official, comprehensive documentation and tutorial from the creators of Python." },
+      { "title": "freeCodeCamp: Python for Everybody", "link": "https://www.freecodecamp.org/learn/scientific-computing-with-python/", "description": "A highly-rated, free full-length course covering Python from the ground up." },
+      { "title": "Automate the Boring Stuff with Python", "link": "https://automatetheboringstuff.com/", "description": "A practical, project-based book (free to read online) for beginners." }
+    ],
+    "onlineCourses": [
+      { "title": "Python for Everybody (Coursera)", "link": "https://www.coursera.org/specializations/python", "description": "Dr. Chuck's famous specialization. Covers basics to web scraping and databases.", "platform": "Coursera" },
+      { "title": "100 Days of Code: The Complete Python Pro Bootcamp (Udemy)", "link": "https://www.udemy.com/course/100-days-of-code/", "description": "A project-heavy bootcamp that takes you from beginner to building a portfolio.", "platform": "Udemy" },
+      { "title": "CS50's Introduction to Programming with Python (Harvard edX)", "link": "https://www.edx.org/course/cs50s-introduction-to-programming-with-python", "description": "An in-depth university-level course on Python, focusing on fundamentals and problem-solving.", "platform": "edX" }
+    ]
+  },
+  "seo": {
+    "subskills": [
+      "Keyword Research", "On-Page SEO", "Off-Page SEO (Link Building)",
+      "Technical SEO", "Content Marketing", "Local SEO", "Analytics (Google Analytics 4)"
+    ],
+    "roadmap": [
+      "Step 1: Understand Search Engine Basics - Learn how Google, Bing, etc., crawl, index, and rank pages.",
+      "Step 2: Master Keyword Research - Learn to find what users are searching for using tools like Ahrefs, Semrush, or Google Keyword Planner.",
+      "Step 3: Learn On-Page SEO - Optimize title tags, meta descriptions, content, and internal linking.",
+      "Step 4: Learn Technical SEO - Understand site speed, mobile-friendliness, sitemaps, and structured data.",
+      "Step 5: Understand Off-Page & Content - Learn how to earn backlinks and create content that satisfies user intent."
+    ],
+    "resources": [
+      { "title": "Moz: The Beginner's Guide to SEO", "link": "https://moz.com/beginners-guide-to-seo", "description": "An industry-standard, multi-chapter guide covering all fundamentals of SEO." },
+      { "title": "Ahrefs Blog", "link": "https://ahrefs.com/blog", "description": "High-quality, data-driven articles on SEO strategies and case studies." },
+      { "title": "Google Search Central", "link": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide", "description": "Google's official documentation and starter guide for SEO." }
+    ],
+    "onlineCourses": [
+      { "title": "SEO Training Course by Moz (Udemy)", "link": "https://www.udemy.com/course/seo-training-course-by-moz/", "description": "A comprehensive SEO course from one of the industry's most respected names.", "platform": "Udemy" },
+      { "title": "The Complete SEO Course (ReliableSoft)", "link": "https://www.reliablesoft.net/seo-course/", "description": "A bundle covering SEO from fundamentals to advanced strategies, updated regularly.", "platform": "ReliableSoft" },
+      { "title": "Semrush Academy", "link": "https://www.semrush.com/academy/", "description": "A wide variety of free courses on SEO, content marketing, and using the Semrush tool.", "platform": "Semrush" }
+    ]
+  }
+}
