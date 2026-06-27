@@ -1,30 +1,61 @@
-# Skill Building Suggestion Engine (Next.js)
-```md
-# Skill Building Suggestion Engine (Next.js)
+<h1 align="center">SkillFinder</h1>
 
-This is a small Next.js app that suggests subskills, a learning roadmap, and resources for a given skill. It uses a local JSON mapping (`/data/skills.json`) and can optionally query a third-party search API if you provide an API key.
+<p align="center">
+  <strong>A modern platform to discover, track, and manage technical skills.</strong>
+</p>
 
-## Quick start
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" alt="Prisma" />
+</p>
 
-1. Install dependencies
+## 🚀 Overview
 
-```bash
-npm install
+SkillFinder is a backend-driven application that helps users manage technical proficiencies. It utilizes **Node.js** for the server environment and **Prisma ORM** for seamless and type-safe database interactions.
+
+### ✨ Features
+- **Skill Management:** Create, read, update, and delete skill profiles.
+- **Robust Database:** Built with Prisma ORM for reliable data modeling.
+- **Scalable Architecture:** Clean separation of concerns inside the `src` directory.
+
+## 📂 Project Structure
+
+```
+├── prisma/            # Prisma schema and migrations
+├── src/               # Application source code (controllers, routes, services)
+├── public/            # Static files
+└── package.json       # Dependencies and scripts
 ```
 
-2. Run locally
+## 🛠️ Getting Started
 
-```bash
-npm run dev
-```
+To run the backend locally:
 
-3. Open http://localhost:3000
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/SakshamJindal04/SkillFinder.git
+   cd SkillFinder
+   ```
 
-## Deployment
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-- Deploy to Vercel by connecting the repository and ensuring Node.js & Next.js settings are default.
-- If you want live web search results, set `SERPER_API_KEY` in the Vercel environment variables (or update the API integration to your preferred provider).
+3. **Configure Environment:**
+   Set up your `.env` file based on `.env.save` (ensure your database connection string is correct).
 
-## Notes
-- The `/pages/api/suggestions.js` route reads `data/skills.json`. Add more skills there to expand the engine.
-- The code attempts a simple fuzzy match; adjust logic for production.
+4. **Initialize Database:**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
+
+5. **Start the server:**
+   ```bash
+   npm start
+   # or npm run dev
+   ```
+
+## 🤝 Contributing
+Issues and Pull Requests are welcome! Let's build a better way to track skills together.
