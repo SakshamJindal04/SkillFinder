@@ -4,36 +4,35 @@
   components and utility classes.
 */
 
-/* Import a clean, modern font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* 1. Tailwind Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 2. Base Layer & Custom Properties (Color Palette) */
 @layer base {
   :root {
-    /* Define your premium color palette */
-    --color-primary: 22 101 216; /* Blue-700 */
-    --color-primary-hover: 24 90 188;
-    --color-primary-glow: 22 101 216; /* For glowing effects */
+    --color-primary: 56 189 248; /* Sky-400 */
+    --color-primary-hover: 14 165 233; /* Sky-500 */
+    --color-primary-glow: 56 189 248; 
     
-    --color-secondary: 239 68 68; /* Red-500 */
+    --color-bg: 250 250 250; /* Neutral-50 / Very soft white */
+    --color-bg-card: 255 255 255;
+    --color-text: 31 41 55; /* Gray-800 */
+    --color-text-muted: 107 114 128; /* Gray-500 */
+    --color-border: 243 244 246; /* Gray-100 */
     
-    --color-text: 28 35 52;     /* Slate-800 */
-    --color-text-muted: 71 85 105;  /* Slate-600 */
-    --color-bg: 248 250 252;   /* Slate-50 */
-    --color-bg-card: 255 255 255; /* White */
-    
-    --color-border: 226 232 240; /* Slate-200 */
-    
-    /* Define border radius */
-    --radius: 0.75rem; /* 12px */
+    --radius: 1rem; /* 16px */
+  }
+
+  .dark {
+    --color-bg: 17 24 39; /* Gray-900 */
+    --color-bg-card: 31 41 55; /* Gray-800 */
+    --color-text: 243 244 246; /* Gray-100 */
+    --color-text-muted: 156 163 175; /* Gray-400 */
+    --color-border: 55 65 81; /* Gray-700 */
   }
   
-  /* Apply base styles */
   html {
     scroll-behavior: smooth;
   }
@@ -43,64 +42,47 @@
   }
 
   body {
-    @apply font-sans; /* Use the 'Inter' font stack from Tailwind */
+    @apply font-sans;
     font-family: 'Inter', sans-serif;
     background-color: rgb(var(--color-bg));
     color: rgb(var(--color-text));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    @apply transition-colors duration-500;
   }
 }
 
-/* 3. Custom Component Layer (Pre-built attractive components) */
 @layer components {
-  /* A beautiful, animated primary button */
   .btn-primary {
-    @apply relative inline-flex items-center justify-center px-6 py-3 font-medium text-white rounded-lg shadow-md transition-all duration-300 ease-out;
-    background: linear-gradient(to right, rgb(var(--color-primary)), #3b82f6); /* Blue-700 to Blue-500 */
-    overflow: hidden;
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-medium text-white rounded-2xl shadow-sm transition-all duration-300 ease-out;
+    background-color: rgb(var(--color-primary));
   }
-  .btn-primary:hover {
+  .btn-primary:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(var(--color-primary-glow), 0.3);
-    background: linear-gradient(to right, rgb(var(--color-primary-hover)), #2563eb);
+    box-shadow: 0 4px 14px rgba(var(--color-primary-glow), 0.4);
+    background-color: rgb(var(--color-primary-hover));
   }
-  .btn-primary:active {
+  .btn-primary:active:not(:disabled) {
     transform: translateY(0);
     box-shadow: 0 2px 6px rgba(var(--color-primary-glow), 0.2);
   }
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
   
-  /* A clean, secondary outline button */
-  .btn-secondary {
-     @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg border-2 transition-all duration-300 ease-out;
-     border-color: rgb(var(--color-border));
-     color: rgb(var(--color-text-muted));
-  }
-  .btn-secondary:hover {
-    transform: translateY(-2px);
-    border-color: rgb(var(--color-primary));
-    color: rgb(var(--color-primary));
-    background-color: rgba(var(--color-primary), 0.05);
-    box-shadow: 0 4px 12px rgba(var(--color-primary-glow), 0.05);
-  }
-
-  /* A modern, soft-shadow card */
   .card {
-    @apply bg-white border border-transparent rounded-xl shadow-sm transition-all duration-300 ease-out;
+    @apply bg-white border border-transparent rounded-2xl shadow-sm transition-all duration-300 ease-out;
     background-color: rgb(var(--color-bg-card));
     border-color: rgb(var(--color-border));
-    /* A softer, more modern shadow */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
   }
   .card:hover {
     transform: translateY(-4px);
-    /* A slightly stronger shadow on hover */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.08);
   }
 
-  /* A beautifully styled input field */
   .input-field {
-    @apply w-full px-4 py-3 text-base rounded-lg border-2 bg-transparent transition-all duration-300 ease-out;
+    @apply w-full px-5 py-3 text-base rounded-2xl border-2 bg-transparent transition-all duration-300 ease-out;
     color: rgb(var(--color-text));
     border-color: rgb(var(--color-border));
   }
@@ -108,62 +90,32 @@
   .input-field:focus-visible {
     outline: none;
     border-color: rgb(var(--color-primary));
-    box-shadow: 0 0 0 3px rgba(var(--color-primary-glow), 0.1);
+    box-shadow: 0 0 0 4px rgba(var(--color-primary-glow), 0.1);
   }
 }
 
-/* 4. Custom Utility Layer (Animations) */
 @layer utilities {
-  /* Keyframe definitions */
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
   }
   
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes slideInFromLeft {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% { 
-      opacity: 1; 
-      box-shadow: 0 0 10px rgba(var(--color-primary-glow), 0.2);
-    }
-    50% { 
-      opacity: 0.8; 
-      box-shadow: 0 0 20px rgba(var(--color-primary-glow), 0.4);
-    }
-  }
-
-  /* Animation utility classes */
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+  .animation-delay-4000 {
+    animation-delay: 4s;
   }
   
-  .animate-fade-in-up {
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-
-  .animate-slide-in-left {
-    animation: slideInFromLeft 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 2s infinite ease-in-out;
-  }
-  
-  /* Add a utility for the page title */
   .page-title {
-    @apply text-4xl font-bold tracking-tight;
+    @apply text-4xl font-bold tracking-tight mb-4;
     color: rgb(var(--color-text));
   }
-}
-html, body {
-  @apply transition-colors duration-500;
 }
